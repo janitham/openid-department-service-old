@@ -19,19 +19,19 @@ public class DepartmentController {
 
     @RolesAllowed("user")
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public ResponseEntity<String> getUserDepartment(@RequestHeader String Authorization) {
+    public ResponseEntity<String> getUserDepartment(@RequestHeader(required = false) String Authorization) {
         return ResponseEntity.ok("User Privileged Department");
     }
 
     @RolesAllowed("admin")
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public ResponseEntity<String> getAdminDepartment(@RequestHeader String Authorization) {
+    public ResponseEntity<String> getAdminDepartment(@RequestHeader(required = false)  String Authorization) {
         return ResponseEntity.ok("Admin Privileged Department");
     }
 
     @RolesAllowed({"admin", "user"})
     @RequestMapping(value = "/all-user", method = RequestMethod.GET)
-    public ResponseEntity<String> getDepartments(@RequestHeader String Authorization) {
+    public ResponseEntity<String> getDepartments(@RequestHeader(required = false)  String Authorization) {
         return ResponseEntity.ok("Departments for all");
     }
 
