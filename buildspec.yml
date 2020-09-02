@@ -13,7 +13,8 @@ phases:
       - echo Build started on `date`
       - echo Building the Module ...
       - ./gradlew build -i --stacktrace
-      - ./gradlew install -i --stacktrace
+      - echo Generating the candicate version
+      - ./gradlew candicate versionOutput -i --stacktrace
       #- git fetch --all
       #- ./gradlew build candidate dockerPush helmDeploy -i --stacktrace -Pdocker_registry=$REPOSITORY_URI -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD
       #- echo Building the Docker image...
