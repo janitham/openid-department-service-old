@@ -25,6 +25,9 @@ apply plugin: "nebula.javadoc-jar"
 apply plugin: "nebula.source-jar"
 
 repositories {
+    maven {
+        url uri('/usr/share/mvn')
+    }
     mavenLocal()
     jcenter()
     mavenCentral()
