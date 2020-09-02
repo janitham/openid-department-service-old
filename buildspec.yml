@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - ls ~/.m2/repository
+      - ls /home/ubuntu/.m2/repository
       - echo Building the Module ...
       - ./gradlew build -i --stacktrace
       #- git fetch --all
