@@ -15,7 +15,7 @@ phases:
       - ./gradlew build -i --stacktrace
       - echo Generating the candidate version
       - ./gradlew candidate versionOutput -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD -i --stacktrace
-      - projectVersion=$(cat ./version)
+      - projectVersion=$(cat version)
       - echo Publishing to s3 bucket
       - ./gradlew publish -Pversion=$projectVersion -i --stacktrace
       #- git fetch --all
