@@ -148,6 +148,8 @@ bootJar {
     classifier = 'application'
 }
 
-task versionOutput(type:Exec) {
-    commandLine 'echo', "${version}", '>', 'version'
+task versionOutput()  {
+    doLast {
+        new File(projectDir, "version.txt").text = "$version"
+    }
 }
