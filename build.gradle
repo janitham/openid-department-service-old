@@ -113,7 +113,7 @@ task dockerPush(type: Exec) {
 }
 
 task helmDeploy(type: Exec){
-    commandLine  "./helm", "--kubeconfig=kubeconfig.yaml", "upgrade", "openid-department-service","./chart","--set", "image.repository=${docker_registry}", "--set", "image.tag=${version}", "--set", "timestamp=${getTimeNow()}"
+    commandLine  "./helm", "--kubeconfig=kubeconfig.yaml", "upgrade", "openid-department-service","./chart","--set", "image.repository=${docker_registry}", "--set", "image.tag=${version}", "--set", "timestamp=${getTimeNow()}", "-a"
 }
 
 dockerPush.dependsOn(dockerBuild)
