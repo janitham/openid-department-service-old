@@ -18,7 +18,7 @@ phases:
       - projectVersion=$(cat version.txt)
       - echo $projectVersion
       - echo Publishing to s3 bucket
-      - ./gradlew publish -Pversion=$projectVersion -i --stacktrace
+      - ./gradlew publish -PprojVersion=$projectVersion -i --stacktrace
       #- git fetch --all
       #- ./gradlew build candidate dockerPush helmDeploy -i --stacktrace -Pdocker_registry=$REPOSITORY_URI -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD
       #- echo Building the Docker image...
