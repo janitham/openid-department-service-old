@@ -147,9 +147,3 @@ jar {
 bootJar {
     classifier = 'application'
 }
-
-task versionOutput()  {
-    doLast {
-        new File(projectDir, "version.txt").text = "$version"
-    }
-}
