@@ -75,6 +75,9 @@ publishing {
     repositories {
         maven {
             url "s3://${repoBucketName}/releases"
+            authentication {
+                awsIm(AwsImAuthentication)
+            }
             /*credentials(AwsCredentials) {
                 accessKey awsCredentials.AWSAccessKeyId
                 secretKey awsCredentials.AWSSecretKey
