@@ -56,13 +56,14 @@ sourceCompatibility = '1.8'
 
 publishing {
     publications {
-        maven(MavenPublication) {
+        /*maven(MavenPublication) {
             artifact bootJar
             artifact("$buildDir/openapi.json") {
                 classifier "openapi"
                 extension "json"
             }
         }
+        */
         nebula(MavenPublication) {
             artifact bootJar
             artifact("$buildDir/openapi.json") {
