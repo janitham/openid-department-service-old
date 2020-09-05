@@ -16,6 +16,12 @@ class EnterpriseRepositoryPlugin implements Plugin<Gradle> {
                     mavenLocal()
                     jcenter()
                     mavenCentral()
+                    maven {
+                        url "s3://${repoBucketName}/releases"
+                        authentication {
+                            awsIm(AwsImAuthentication)
+                        }
+                    }
                 }
             }
         }
