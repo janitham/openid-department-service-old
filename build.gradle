@@ -50,10 +50,6 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     implementation("org.springdoc:springdoc-openapi-ui")
 
-    compile('javax.xml.bind:jaxb-api:2.3.0')
-    compile('javax.activation:activation:1.1')
-    compile('org.glassfish.jaxb:jaxb-runtime:2.3.0')
-
 }
 
 group = 'org.ss.department'
@@ -64,14 +60,14 @@ targetCompatibility = 1.8
 
 publishing {
     publications {
-        /*maven(MavenPublication) {
-            artifact bootJar
+        maven(MavenPublication) {
+            //artifact bootJar
             artifact("$buildDir/openapi.json") {
                 classifier "openapi"
                 extension "json"
             }
         }
-        */
+
         nebula(MavenPublication) {
             //artifact bootJar
             artifact("$buildDir/openapi.json") {
