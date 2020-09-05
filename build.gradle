@@ -59,6 +59,9 @@ dependencies {
 group = 'org.ss.department'
 sourceCompatibility = '1.8'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 publishing {
     publications {
         /*maven(MavenPublication) {
