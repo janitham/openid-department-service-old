@@ -49,6 +49,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     implementation("org.springdoc:springdoc-openapi-ui")
+    implementation('javax.xml.bind:jaxb-api:2.3.0')
 }
 
 group = 'org.ss.department'
@@ -65,12 +66,15 @@ publishing {
         }
         */
         nebula(MavenPublication) {
-            artifact bootJar
+            //artifact bootJar
             artifact("$buildDir/openapi.json") {
                 classifier "openapi"
                 extension "json"
             }
         }
+        /*json(MavenPublication) {
+            artifact "$buildDir/openapi.json"
+        }*/
     }
     repositories {
         maven {
