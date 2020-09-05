@@ -14,6 +14,7 @@ phases:
       - echo Building the Module ...
       #- ./gradlew build -i --stacktrace
       - echo Generating the candidate version
+      - java -version
       - ./gradlew candidate publish -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD -I init.gradle -i --stacktrace
       #- ./gradlew candidate publish dockerPush helmDeploy -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD -Pdocker_registry=$REPOSITORY_URI -I init.gradle -i --stacktrace
       #- git fetch --all
