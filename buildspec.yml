@@ -15,15 +15,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Module ...
-      #- ./gradlew build -i --stacktrace
-      - echo Generating the candidate version
-      - java -version
-      - ./gradlew candidate generateOpenApiDocs publish -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD -I init.gradle -i --stacktrace
-      #- ./gradlew candidate publish dockerPush helmDeploy -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD -Pdocker_registry=$REPOSITORY_URI -I init.gradle -i --stacktrace
-      #- git fetch --all
-      #- ./gradlew build candidate dockerPush helmDeploy -i --stacktrace -Pdocker_registry=$REPOSITORY_URI -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD
-      #- echo Building the Docker image...
-      #- ./gradlew dockerPush -i --stacktrace
+      - ./gradlew candidate generateOpenApiDocs publish dockerPush helmDeploy -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD -Pdocker_registry=$REPOSITORY_URI -I init.gradle -i --stacktrace
   post_build:
     commands:
       - echo Build completed on `date`

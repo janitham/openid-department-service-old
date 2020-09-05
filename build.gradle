@@ -60,30 +60,18 @@ targetCompatibility = 1.8
 
 publishing {
     publications {
-        /*maven(MavenPublication) {
-            //artifact bootJar
-            artifact("$buildDir/openapi.json") {
-                classifier "openapi"
-                extension "json"
-            }
-        }*/
         nebula(MavenPublication) {
-            //artifact bootJar
             artifact("$buildDir/openapi.json") {
                 classifier "openapi"
                 extension "json"
             }
         }
-        /*json(MavenPublication) {
-            artifact "$buildDir/openapi.json"
-        }*/
     }
     repositories {
         maven {
             url "s3://${repoBucketName}/releases"
-            credentials(AwsCredentials) {
-                accessKey 'AKIAQG2JZHSCRIW7YCL6'
-                secretKey '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'
+            authentication {
+                awsIm(AwsImAuthentication)
             }
         }
     }
