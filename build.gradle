@@ -55,8 +55,15 @@ group = 'org.ss.department'
 sourceCompatibility = '1.8'
 
 publishing {
-   publications {
+    publications {
         maven(MavenPublication) {
+            artifact bootJar
+            artifact("$buildDir/openapi.json") {
+                classifier "openapi"
+                extension "json"
+            }
+        }
+        nebula(MavenPublication) {
             artifact bootJar
             artifact("$buildDir/openapi.json") {
                 classifier "openapi"
@@ -100,7 +107,7 @@ task dockerPush(type: Exec) {
     args "push", "${docker_registry}:${version}"
 }
 
-task helmDeploy(type: Exec){
+task helmDeploy(type: Exec) {
     commandLine "./helm",
             "--kubeconfig=kubeconfig.yaml",
             "upgrade",
@@ -117,7 +124,7 @@ dockerPush.dependsOn(dockerBuild)
 copyJar.dependsOn(build)
 dockerBuild.dependsOn(copyJar)
 
-def getTimeNow(){
+def getTimeNow() {
     LocalDateTime.now().toString()
 }
 
