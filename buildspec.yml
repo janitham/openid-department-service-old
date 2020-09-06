@@ -15,7 +15,8 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Module ...
-      - ./gradlew candidate generateOpenApiDocs publish dockerPush helmDeploy \
+      - |
+        ./gradlew candidate generateOpenApiDocs publish dockerPush helmDeploy \
         -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER \
         -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD \
         -Pdocker_registry=$REPOSITORY_URI \
